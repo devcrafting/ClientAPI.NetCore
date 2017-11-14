@@ -328,6 +328,7 @@ namespace EventStore.ClientAPI.Internal
                     }
                     if (_connectingPhase > ConnectingPhase.ConnectionEstablishing)
                         ManageHeartbeats();
+                    _operations.CheckTimeoutsAndRetry(_connection);
                     break;
                 }
                 case ConnectionState.Connected:
